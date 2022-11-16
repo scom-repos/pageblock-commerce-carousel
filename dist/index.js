@@ -217,6 +217,7 @@
     async config() {
     }
     updateCarousel() {
+      this.isSwiping = false;
       if (this._data.slidesToShow !== void 0)
         this.carouselSlider.slidesToShow = this._data.slidesToShow;
       this.carouselSlider.autoplay = this._data.autoplay;

@@ -72,6 +72,7 @@ export default class Module1 extends Module implements PageBlock {
   async config() { }
 
   private updateCarousel() {
+    this.isSwiping = false;
     if (this._data.slidesToShow !== undefined) this.carouselSlider.slidesToShow = this._data.slidesToShow;
     this.carouselSlider.autoplay = this._data.autoplay;
     this.carouselSlider.swipe = this._data.swipe;
