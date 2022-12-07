@@ -9,7 +9,7 @@ import {
 import productList from './data.json';
 import { IConfig, PageBlock } from '@carousel/global';
 import customStyles from './index.css';
-import Config from './config';
+import Config from '@carousel/config';
 export { Config };
 
 @customModule
