@@ -95,51 +95,12 @@ define("@carousel/main/index.css.ts", ["require", "exports", "@ijstech/component
         }
     });
 });
-define("@carousel/main/config.tsx", ["require", "exports", "@ijstech/components"], function (require, exports, components_2) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    let Config = class Config extends components_2.Module {
-        get data() {
-            const _data = {
-                autoplay: this.checkAutoplay.checked,
-                controls: this.checkControls.checked,
-                indicators: this.checkIndicators.checked,
-                swipe: this.checkSwipe.checked
-            };
-            const slidesToShow = Number(this.edtSlidesToShow.value);
-            if (Number.isInteger(slidesToShow))
-                _data.slidesToShow = slidesToShow;
-            return _data;
-        }
-        set data(config) {
-            this.edtSlidesToShow.value = config.slidesToShow || "";
-            this.checkAutoplay.checked = config.autoplay;
-            this.checkControls.checked = config.controls;
-            this.checkIndicators.checked = config.indicators;
-            this.checkSwipe.checked = config.swipe;
-        }
-        render() {
-            return (this.$render("i-vstack", { id: "pnlConfig", gap: '0.5rem', padding: { top: '1rem', bottom: '1rem', left: '1rem', right: '1rem' } },
-                this.$render("i-label", { caption: "Slides to show:" }),
-                this.$render("i-input", { id: "edtSlidesToShow", width: "100%", inputType: 'number' }),
-                this.$render("i-checkbox", { id: "checkAutoplay", caption: "Autoplay?" }),
-                this.$render("i-checkbox", { id: "checkControls", caption: "Controls?" }),
-                this.$render("i-checkbox", { id: "checkIndicators", caption: "Indicators?" }),
-                this.$render("i-checkbox", { id: "checkSwipe", caption: "Swipe?" })));
-        }
-    };
-    Config = __decorate([
-        components_2.customModule,
-        components_2.customElements("pageblock-carousel-config")
-    ], Config);
-    exports.default = Config;
-});
-define("@carousel/main", ["require", "exports", "@ijstech/components", "@carousel/main/data.json.ts", "@carousel/main/index.css.ts", "@carousel/main/config.tsx"], function (require, exports, components_3, data_json_1, index_css_1, config_1) {
+define("@carousel/main", ["require", "exports", "@ijstech/components", "@carousel/main/data.json.ts", "@carousel/main/index.css.ts", "@carousel/config"], function (require, exports, components_2, data_json_1, index_css_1, config_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Config = void 0;
     exports.Config = config_1.default;
-    let Module1 = class Module1 extends components_3.Module {
+    let Module1 = class Module1 extends components_2.Module {
         constructor() {
             super(...arguments);
             this._data = {};
@@ -225,7 +186,7 @@ define("@carousel/main", ["require", "exports", "@ijstech/components", "@carouse
         }
     };
     Module1 = __decorate([
-        components_3.customModule
+        components_2.customModule
     ], Module1);
     exports.default = Module1;
 });
