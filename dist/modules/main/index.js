@@ -63,6 +63,7 @@ define("@carousel/main/data.json.ts", ["require", "exports"], function (require,
 define("@carousel/main/index.css.ts", ["require", "exports", "@ijstech/components"], function (require, exports, components_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    const Theme = components_1.Styles.Theme.ThemeVars;
     exports.default = components_1.Styles.style({
         $nest: {
             'i-carousel-slider.--indicators .dots-pagination': {
@@ -92,6 +93,13 @@ define("@carousel/main/index.css.ts", ["require", "exports", "@ijstech/component
                     }
                 }
             },
+            'i-panel.container': {
+                width: Theme.layout.container.width,
+                maxWidth: Theme.layout.container.maxWidth,
+                overflow: Theme.layout.container.overflow,
+                textAlign: Theme.layout.container.textAlign,
+                margin: '0 auto'
+            }
         }
     });
 });
@@ -177,7 +185,7 @@ define("@carousel/main", ["require", "exports", "@ijstech/components", "@carouse
         }
         render() {
             return (this.$render("i-panel", { id: "pnlBlock", class: index_css_1.default },
-                this.$render("i-panel", { id: "pnlCarousel" },
+                this.$render("i-panel", { id: "pnlCarousel", class: "container" },
                     this.$render("i-grid-layout", { id: "gridCarousel", width: "100%", height: "100%", templateColumns: ["45px", "auto", "45px"] },
                         this.$render("i-button", { id: "btnPrev", class: "--arrow-button", height: "100%", width: "45px", icon: { name: 'chevron-left', fill: 'rgba(160,168,177,.68)' }, background: { color: 'transparent' }, onClick: this.prev.bind(this) }),
                         this.$render("i-carousel-slider", { id: "carouselSlider", width: "100%", height: "100%", onSwipeStart: this.onSwipeStart, onSwipeEnd: this.onSwipeEnd }),
