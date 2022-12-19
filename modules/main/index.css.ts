@@ -1,4 +1,5 @@
 import { Styles } from "@ijstech/components";
+const Theme = Styles.Theme.ThemeVars;
 
 export default Styles.style({
   $nest: {
@@ -29,5 +30,12 @@ export default Styles.style({
         }
       }
     },
+    'i-panel.container': {
+      width: Theme.layout.container.width,
+      maxWidth: Theme.layout.container.maxWidth,
+      overflow: Theme.layout.container.overflow,
+      textAlign: (Theme.layout.container.textAlign as any),
+      margin: '0 auto'
+    }
   }
 })

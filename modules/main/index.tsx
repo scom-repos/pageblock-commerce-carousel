@@ -118,7 +118,7 @@ export default class Module1 extends Module implements PageBlock {
   render() {
     return (
       <i-panel id="pnlBlock" class={customStyles}>
-        <i-panel id="pnlCarousel">
+        <i-panel id="pnlCarousel" class="container">
           <i-grid-layout id="gridCarousel" width="100%" height="100%" templateColumns={["45px", "auto", "45px"]}>
             <i-button
               id="btnPrev"
